@@ -1,1 +1,6 @@
 <p>notes-list works!</p>
+<div *ngFor="let note of notesList" id="{{ note._id }}">
+  <h2>{{ note.title }}</h2>
+  <p>{{ note.content }}</p>
+  <small>Fecha: {{ note.createdAt }}</small>
+</div>
