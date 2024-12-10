@@ -1,6 +1,15 @@
-<p>notes-list works!</p>
-<div *ngFor="let note of notesList" id="{{ note._id }}">
-  <h2>{{ note.title }}</h2>
-  <p>{{ note.content }}</p>
-  <small>Fecha: {{ note.createdAt }}</small>
-</div>
+<form (ngSubmit)="createNote()">
+  <div>
+    <label for="note-title">Título:</label>
+    <input type="text" id="note-title" name="title" [(ngModel)]="noteToCreate.title" required />
+  </div>
+  <div>
+    <label for="note-content">Contenido:</label>
+    <textarea id="note-content" name="content" rows="4" [(ngModel)]="noteToCreate.content" required></textarea>
+  </div>
+  <div>
+    <button type="submit">Crear Nota</button>
+  </div>
+</form>
+
+<note *ngFor="let note of notesList" [noteModel]="note"></note>
