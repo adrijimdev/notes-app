@@ -12,4 +12,4 @@
   </div>
 </form>
 
-<note *ngFor="let note of notesList" [noteModel]="note"></note>
+<note *ngFor="let note of notesList" [noteModel]="note" (noteDeleted)="onNoteDeleted()"></note>

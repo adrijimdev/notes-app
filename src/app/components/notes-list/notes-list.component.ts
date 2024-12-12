@@ -32,7 +32,10 @@ export class NotesListComponent {
     });
   }
 
-
+  // Esto se ejecutará al recibir el EventEmitter del borrado de nota en el componente note
+  onNoteDeleted() {
+    this.bringNotes();
+  }
 
   bringNotes() {
     this.notesService.getNotes().subscribe({
@@ -40,7 +43,5 @@ export class NotesListComponent {
       error: (err) => console.error('Error al obtener notas:', err)
     });
   }
-
-
 
 }
