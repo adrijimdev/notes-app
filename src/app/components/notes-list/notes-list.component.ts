@@ -32,11 +32,6 @@ export class NotesListComponent {
     });
   }
 
-  // Esto se ejecutará al recibir el EventEmitter del borrado de nota en el componente note
-  onNoteDeleted() {
-    this.bringNotes();
-  }
-
   bringNotes() {
     this.notesService.getNotes().subscribe({
       next: (data) => this.notesList = data,

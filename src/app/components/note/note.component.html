@@ -2,5 +2,6 @@
   <h2>{{ noteModel.title }}</h2>
   <p>{{ noteModel.content }}</p>
   <button (click)="deleteNote()">Eliminar</button>
+  <button (click)="updateNote()">Editar</button>
   <small>Fecha: {{ noteModel.createdAt | date }}</small>
 </div>
