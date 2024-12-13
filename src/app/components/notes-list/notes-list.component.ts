@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 import { NotesService } from '../../services/notes.service';
 import { NoteModel } from '../../models/note';
 import { NoteComponent } from "../note/note.component";
+import { CreateNoteComponent } from '../create-note/create-note.component';
 
 @Component({
   selector: 'notes-list',
@@ -14,21 +16,23 @@ import { NoteComponent } from "../note/note.component";
 })
 export class NotesListComponent {
   notesList: NoteModel[] = []
-  noteToCreate: NoteModel = new NoteModel("", "")
 
-  constructor(private notesService: NotesService) {}
+  constructor(private notesService: NotesService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.bringNotes()
   }
 
   createNote() {
-    this.notesService.createNote(this.noteToCreate).subscribe({
-      next: (createdNote) => {
-        this.noteToCreate = new NoteModel("", "");  // Para limpiar el formulario, aunque en el futuro no será necesario ya que se hará de otro modo
-        this.bringNotes(); //Actualizo la lista de notas
-      },
-      error: (err) => console.error('Error al crear nota:', err)
+    const dialogRef = this.dialog.open(CreateNoteComponent);
+
+    dialogRef.afterClosed().subscribe((createdNote) => {
+      this.notesService.createNote(createdNote).subscribe({
+        next: (createdNote) => {
+          this.bringNotes(); //Actualizo la lista de notas
+        },
+        error: (err) => console.error('Error al crear nota:', err)
+      });
     });
   }
 

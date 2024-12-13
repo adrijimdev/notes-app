@@ -1,4 +1,4 @@
-<form (ngSubmit)="createNote()">
+<!-- <form (ngSubmit)="createNote()">
   <div>
     <label for="note-title">Título:</label>
     <input type="text" id="note-title" name="title" [(ngModel)]="noteToCreate.title" required />
@@ -10,6 +10,7 @@
   <div>
     <button type="submit">Crear Nota</button>
   </div>
-</form>
+</form> -->
+<button (click)="createNote()">Crear Nota</button>
 
 <note *ngFor="let note of notesList" [noteModel]="note" (noteDeleted)="bringNotes()" (noteUpdated)="bringNotes()"></note>
