@@ -28,6 +28,11 @@ export class UsersService {
       return this.http.post<UserModel>(this.apiUrl, user);
     }
 
+    // POST método para iniciar sesión
+    login(credentials: { username: string; password: string }): Observable<any> {
+      return this.http.post(`${this.apiUrl}/login`, credentials);
+    }
+
     // PUT
     updateUser(id: string, user: UserModel): Observable<UserModel> {
       return this.http.put<UserModel>(`${this.apiUrl}/${id}`, user);

@@ -19,7 +19,8 @@ export class CreateNoteComponent {
     private dialogRef: MatDialogRef<CreateNoteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: NoteModel
   ) {
-    this.noteModel = { ...data };
+    const userId = localStorage.getItem('userId');
+    this.noteModel = { ...data, userId : userId || ''};
   }
 
   createNote(): void {
