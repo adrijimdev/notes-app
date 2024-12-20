@@ -18,6 +18,10 @@ export class NotesService {
     return this.http.get<NoteModel[]>(this.apiUrl);
   }
 
+  getUserNotes(userId: string): Observable<NoteModel[]> {
+    return this.http.get<NoteModel[]>(`${this.apiUrl}/userNotes/${userId}`)
+  }
+
   // GET
   getNoteById(id: string): Observable<NoteModel> {
     return this.http.get<NoteModel>(`${this.apiUrl}/${id}`);

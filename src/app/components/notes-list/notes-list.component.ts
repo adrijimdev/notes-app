@@ -16,6 +16,7 @@ import { CreateNoteComponent } from '../create-note/create-note.component';
 })
 export class NotesListComponent {
   notesList: NoteModel[] = []
+  userId: string = localStorage.getItem('userId')  || ''
 
   constructor(private notesService: NotesService, private dialog: MatDialog) {}
 
@@ -37,7 +38,7 @@ export class NotesListComponent {
   }
 
   bringNotes() {
-    this.notesService.getNotes().subscribe({
+    this.notesService.getUserNotes(this.userId).subscribe({
       next: (data) => this.notesList = data,
       error: (err) => console.error('Error al obtener notas:', err)
     });
