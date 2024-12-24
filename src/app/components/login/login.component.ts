@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 import { UsersService } from '../../services/users.service';
 import { UserModel } from '../../models/user';
 
 @Component({
   selector: 'login',
-  imports: [MatFormFieldModule, FormsModule],
+  imports: [MatFormFieldModule, FormsModule, MatInputModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -18,16 +19,12 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(
-    private usersService: UsersService,
-    private router: Router
-  ) {}
+  constructor(private usersService: UsersService, private router: Router) {}
 
   login() {
     this.usersService.login(this.userModel).subscribe(
       (response: any) => {
-        // almaceno en localStorage el token proporcionado por la api y el id del usuario (necesario para gestionar sus notas)
-        localStorage.setItem('token', response.token);
+        // almaceno en localStorage el id del usuario (necesario para gestionar sus notas)
         localStorage.setItem('userId', response.userId);
 
         // una vez logeado, se redirige al usuario a su lista de notas donde podra crearlas, modificarlas y eliminarlas

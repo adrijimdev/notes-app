@@ -5,10 +5,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router); //inyecto el servicio Router para poder redirigir a un componente en caso necesario
 
   const userId = localStorage.getItem('userId');
-  const token = localStorage.getItem('token');
 
-  //verifico que userId y token almacenados en localStorage tengan un valor que no sea vacío, en cuyo caso permito el acceso
-  if (userId !== '' && token !== '') {
+  //verifico que userId almacenado en localStorage tenga un valor que no sea vacío, en cuyo caso permito el acceso
+  if (userId !== '') {
     return true;
   }
 

@@ -1,19 +1,29 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { UsersService } from '../../services/users.service';
 import { UserModel } from '../../models/user';
 
 @Component({
   selector: 'register',
-  imports: [MatFormFieldModule, FormsModule],
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
   userModel: UserModel = new UserModel('', '');
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router: Router) {}
 
   registerUser() {
     if (!this.userModel.username || !this.userModel.password) {
@@ -25,6 +35,8 @@ export class RegisterComponent {
       next: (response) => {
         this.userModel = new UserModel("", "");
         console.log('Usuario registrado:', response);
+        localStorage.setItem('userId', String(response._id));
+        this.router.navigate(['/notes-list']);
       },
       error: (err) => {
         console.error('Error al registrar el usuario:', err);
