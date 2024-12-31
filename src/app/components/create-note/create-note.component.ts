@@ -17,10 +17,10 @@ export class CreateNoteComponent {
 
   constructor(
     private dialogRef: MatDialogRef<CreateNoteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: NoteModel
+    @Inject(MAT_DIALOG_DATA) public data: NoteModel // Se inyectan los datos del componente padre (note-component)
   ) {
     const userId = localStorage.getItem('userId');
-    this.noteModel = { ...data, userId : userId || ''};
+    this.noteModel = { ...data, userId : userId || ''}; // Se crea una copia del objeto data y se le añade el userId
   }
 
   createNote(): void {

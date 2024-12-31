@@ -33,10 +33,10 @@ export class RegisterComponent {
 
     this.usersService.createUser(this.userModel).subscribe({
       next: (response) => {
-        this.userModel = new UserModel("", "");
+        this.userModel = new UserModel("", ""); // Limpiar los campos del formulario
         console.log('Usuario registrado:', response);
-        localStorage.setItem('userId', String(response._id));
-        this.router.navigate(['/notes-list']);
+        localStorage.setItem('userId', String(response._id)); // Guardar el id del usuario en el localStorage
+        this.router.navigate(['/notes-list']); // Redirigir al usuario a la lista de notas
       },
       error: (err) => {
         console.error('Error al registrar el usuario:', err);

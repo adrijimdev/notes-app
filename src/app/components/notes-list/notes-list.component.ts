@@ -39,7 +39,7 @@ export class NotesListComponent {
 
   bringNotes() {
     this.notesService.getUserNotes(this.userId).subscribe({
-      next: (data) => this.notesList = data,
+      next: (data) => this.notesList = data, //Se asignan al array las notas obtenidas
       error: (err) => console.error('Error al obtener notas:', err)
     });
   }
