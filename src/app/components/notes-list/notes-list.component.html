@@ -1,3 +1,7 @@
-<button (click)="createNote()">Crear Nota</button>
+<div class="container">
+  <button (click)="createNote()" class="btn-create-note">Crear Nota</button>
 
-<note *ngFor="let note of notesList" [noteModel]="note" (noteDeleted)="bringNotes()" (noteUpdated)="bringNotes()"></note>
+  <div class="notes-list">
+    <note-card *ngFor="let note of notesList" [noteModel]="note" (noteDeleted)="bringNotes()" (noteUpdated)="bringNotes()"></note-card>
+  </div>
+</div>

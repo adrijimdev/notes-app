@@ -9,12 +9,12 @@ import { ConfirmDeletionComponent } from '../confirm-deletion/confirm-deletion.c
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
-  selector: 'note',
+  selector: 'note-card',
   imports: [CommonModule],
-  templateUrl: './note.component.html',
-  styleUrl: './note.component.css'
+  templateUrl: './note-card.component.html',
+  styleUrl: './note-card.component.css'
 })
-export class NoteComponent {
+export class NoteCardComponent {
   @Input() noteModel!: NoteModel;
   @Output() noteDeleted: EventEmitter<void> = new EventEmitter();
   @Output() noteUpdated: EventEmitter<void> = new EventEmitter();

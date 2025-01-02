@@ -5,12 +5,12 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { NotesService } from '../../services/notes.service';
 import { NoteModel } from '../../models/note';
-import { NoteComponent } from "../note/note.component";
+import { NoteCardComponent } from "../note-card/note-card.component";
 import { CreateNoteComponent } from '../create-note/create-note.component';
 
 @Component({
   selector: 'notes-list',
-  imports: [CommonModule, FormsModule, NoteComponent],
+  imports: [CommonModule, FormsModule, NoteCardComponent],
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css'
 })

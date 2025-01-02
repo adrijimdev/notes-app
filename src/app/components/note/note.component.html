@@ -1,9 +1,0 @@
-// TODO: Gestionar la forma de mostrar la nota en caso de que el contenido sea demasiado largo
-// TODO: Mostrar sólo el título y hacer click para ver la nota completa? Añadir scroll y un botón para ver la nota completa?
-<div id="{{ noteModel._id }}">
-  <h2>{{ noteModel.title }}</h2>
-  <p>{{ noteModel.content }}</p>
-  <button (click)="deleteNote()">Eliminar</button>
-  <button (click)="updateNote()">Editar</button>
-  <small>Fecha: {{ noteModel.createdAt | date }}</small>
-</div>
