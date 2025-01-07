@@ -1,14 +1,16 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MatDialogContent, MAT_DIALOG_DATA, MatDialogActions } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 
 import { NoteModel } from '../../models/note';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'create-note',
   standalone: true,
-  imports: [MatDialogContent, MatDialogActions, MatFormFieldModule, FormsModule],
+  imports: [MatDialogContent, MatDialogActions, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule,],
   templateUrl: './create-note.component.html',
   styleUrl: './create-note.component.css',
 })

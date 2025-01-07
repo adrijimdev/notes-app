@@ -1,35 +1,20 @@
 <div class="register-container">
   <h2>Registro de Usuario</h2>
   <form #registerForm="ngForm">
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Nombre de usuario</mat-label>
-      <input
-        matInput
-        type="text"
-        [(ngModel)]="userModel.username"
-        name="username"
-        required
-      />
-    </mat-form-field>
+    <div class="row">
+      <mat-form-field appearance="fill" class="full-width" (ngSubmit)="registerUser()">
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput type="text" [(ngModel)]="userModel.username" name="username" required/>
+      </mat-form-field>
+    </div>
 
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Contraseña</mat-label>
-      <input
-        matInput
-        type="password"
-        [(ngModel)]="userModel.password"
-        name="password"
-        required
-      />
-    </mat-form-field>
+    <div class="row">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" [(ngModel)]="userModel.password" name="password" required/>
+      </mat-form-field>
+    </div>
     <!-- Si el formulario no está relleno, el botón se deshabilita con [disabled]="!registerForm.valid" -->
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="!registerForm.valid"
-      (click)="registerUser()"
-    >
-      Registrarse
-    </button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!registerForm.valid">Registrarse</button>
   </form>
 </div>

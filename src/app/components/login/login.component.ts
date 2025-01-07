@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { UsersService } from '../../services/users.service';
 import { UserModel } from '../../models/user';
 
 @Component({
   selector: 'login',
-  imports: [MatFormFieldModule, FormsModule, MatInputModule],
+  imports: [MatFormFieldModule, FormsModule, MatInputModule, MatButtonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
