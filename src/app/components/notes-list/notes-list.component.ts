@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 
 import { NotesService } from '../../services/notes.service';
 import { NoteModel } from '../../models/note';
@@ -10,7 +11,7 @@ import { CreateNoteComponent } from '../create-note/create-note.component';
 
 @Component({
   selector: 'notes-list',
-  imports: [CommonModule, FormsModule, NoteCardComponent],
+  imports: [CommonModule, FormsModule, NoteCardComponent, MatIcon],
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css'
 })

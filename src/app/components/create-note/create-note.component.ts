@@ -1,11 +1,12 @@
 import { Component, Inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogContent, MAT_DIALOG_DATA, MatDialogActions } from '@angular/material/dialog';
 import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 import { NoteModel } from '../../models/note';
-import { MatInputModule } from '@angular/material/input';
+
 
 @Component({
   selector: 'create-note',

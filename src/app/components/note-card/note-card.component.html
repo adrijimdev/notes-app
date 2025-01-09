@@ -4,9 +4,14 @@
 -->
 <div id="{{ noteModel._id }}">
   <h2>{{ noteModel.title }}</h2>
-  <!-- <p>{{ noteModel.content }}</p> -->
-  <button (click)="deleteNote()">Eliminar</button>
-  <button (click)="updateNote()">Editar</button>
+  <p>{{ noteModel.content }}</p>
+  <button (click)="deleteNote()">
+    <!-- <span class="material-symbols-outlined">delete</span> -->
+    <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+  </button>
+  <button (click)="updateNote()">
+    <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
+  </button>
   <br>
   <small>Fecha: {{ noteModel.createdAt | date }}</small>
 </div>

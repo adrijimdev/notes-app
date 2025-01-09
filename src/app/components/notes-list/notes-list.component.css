@@ -6,9 +6,14 @@
 }
 
 .btn-create-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* padding: 8px 16px; */
   margin-bottom: 20px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -16,7 +21,7 @@
   cursor: pointer;
 }
 
-.create-note-btn:hover {
+.btn-create-note:hover {
   background-color: #0056b3;
 }
 

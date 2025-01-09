@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 
 import { NotesService } from '../../services/notes.service';
 import { NoteModel } from '../../models/note';
@@ -10,7 +11,7 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
   selector: 'note-card',
-  imports: [CommonModule],
+  imports: [CommonModule, MatIcon],
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.css'
 })

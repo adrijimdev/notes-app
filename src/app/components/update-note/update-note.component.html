@@ -20,6 +20,12 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-button (click)="cancelUpdate()">Cancelar</button>
-  <button mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">Guardar</button>
+  <button mat-button (click)="cancelUpdate()" class="btn-cancel">
+    <mat-icon aria-hidden="false" aria-label="Example cancel icon" fontIcon="cancel"></mat-icon>
+    Cancelar
+  </button>
+  <button mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">
+    <mat-icon aria-hidden="false" aria-label="Example save icon" fontIcon="save"></mat-icon>
+    Guardar
+  </button>
 </mat-dialog-actions>
