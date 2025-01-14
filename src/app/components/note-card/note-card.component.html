@@ -8,9 +8,11 @@
   <button (click)="deleteNote()">
     <!-- <span class="material-symbols-outlined">delete</span> -->
     <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+    Eliminar
   </button>
   <button (click)="updateNote()">
     <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
+    Editar
   </button>
   <br>
   <small>Fecha: {{ noteModel.createdAt | date }}</small>

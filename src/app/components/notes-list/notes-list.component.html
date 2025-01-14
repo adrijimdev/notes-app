@@ -1,8 +1,10 @@
 <div class="container">
-  <button (click)="createNote()" class="btn-create-note">
-    <mat-icon aria-hidden="false" aria-label="Example add icon" fontIcon="add"></mat-icon>
-    Crear Nota
-  </button>
+  <div class="notes-header">
+    <button (click)="createNote()" class="btn-create-note">
+      <mat-icon aria-hidden="false" aria-label="Example add icon" fontIcon="add"></mat-icon>
+      Crear Nota
+    </button>
+  </div>
 
   <div class="notes-list">
     <note-card *ngFor="let note of notesList" [noteModel]="note" (noteDeleted)="bringNotes()" (noteUpdated)="bringNotes()"></note-card>

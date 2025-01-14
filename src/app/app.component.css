@@ -1,3 +1,7 @@
+header {
+  width: 100%;
+}
+
 .btn-logout {
   position: absolute;
   display: flex;

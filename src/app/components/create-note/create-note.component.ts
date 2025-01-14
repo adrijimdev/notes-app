@@ -4,6 +4,7 @@ import { MatDialogRef, MatDialogContent, MAT_DIALOG_DATA, MatDialogActions } fro
 import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
 
 import { NoteModel } from '../../models/note';
 
@@ -11,7 +12,7 @@ import { NoteModel } from '../../models/note';
 @Component({
   selector: 'create-note',
   standalone: true,
-  imports: [MatDialogContent, MatDialogActions, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule,],
+  imports: [MatDialogContent, MatDialogActions, MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, MatIcon],
   templateUrl: './create-note.component.html',
   styleUrl: './create-note.component.css',
 })
