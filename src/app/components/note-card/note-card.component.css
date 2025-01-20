@@ -1,6 +1,6 @@
 :host {
   display: block;
-  height: 150px;
+  height: 175px;
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 5px;
@@ -13,6 +13,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+.note-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 p {
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Número máximo de líneas visibles */
@@ -21,3 +28,14 @@ p {
   text-overflow: ellipsis;
 }
 
+mat-dialog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* padding: 16px; */
+}
+
+.mat-button.mat-warn {
+  color: #dc3545;
+}

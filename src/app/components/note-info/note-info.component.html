@@ -1,1 +1,56 @@
-<p>note-info works!</p>
+<div class="update-container">
+  <!-- <h2 mat-dialog-title>Editar Nota</h2> -->
+  <mat-dialog-content>
+    <ng-container *ngIf="!updatingNote">
+      <p>{{ noteModel.title }}</p>
+      <p>{{ noteModel.content }}</p>
+    </ng-container>
+    <ng-container *ngIf="updatingNote">
+      <form #editNoteForm="ngForm">
+        <div class="row">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Título</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="noteModel.title"
+              name="title"
+              maxlength="20"
+              placeholder="Máximo 20 caracteres"
+              required
+            />
+            <mat-hint align="end">{{ noteModel.title?.length || 0 }}/20</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Contenido</mat-label>
+            <textarea
+              matInput
+              [(ngModel)]="noteModel.content"
+              name="content"
+              rows="5"
+              maxlength="300"
+              placeholder="Máximo 300 caracteres"
+              required
+            ></textarea>
+            <mat-hint align="end">{{ noteModel.content?.length || 0 }}/300</mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+    </ng-container>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="cancelUpdate()" class="btn-cancel">
+      <mat-icon aria-hidden="false" aria-label="Example cancel icon" fontIcon="cancel"></mat-icon>
+      Cancelar
+    </button>
+    <!-- <button mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">
+      <mat-icon aria-hidden="false" aria-label="Example save icon" fontIcon="save"></mat-icon>
+      Guardar
+    </button> -->
+  </mat-dialog-actions>
+</div>

@@ -2,18 +2,23 @@
   TODO: Gestionar la forma de mostrar la nota en caso de que el contenido sea demasiado largo
   TODO: Mostrar sólo el título y hacer click para ver la nota completa?
 -->
-<div id="{{ noteModel._id }}">
+<div class="note-card-container" id="{{ noteModel._id }}">
   <h2>{{ noteModel.title }}</h2>
   <p>{{ noteModel.content }}</p>
-  <button (click)="deleteNote()">
-    <!-- <span class="material-symbols-outlined">delete</span> -->
-    <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
-    Eliminar
-  </button>
-  <button (click)="updateNote()">
-    <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
-    Editar
-  </button>
-  <br>
+  <mat-dialog-actions>
+    <button mat-button color="warn" (click)="deleteNote()">
+      <!-- <span class="material-symbols-outlined">delete</span> -->
+      <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+      Eliminar
+    </button>
+    <button mat-button (click)="updateNote()">
+      <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
+      Editar
+    </button>
+    <button mat-button (click)="openNoteInfo()">
+      <mat-icon aria-hidden="false" aria-label="Example zoom_in icon" fontIcon="zoom_in"></mat-icon>
+      Ver más
+    </button>
+  </mat-dialog-actions>
   <small>Fecha: {{ noteModel.createdAt | date }}</small>
 </div>

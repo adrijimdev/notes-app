@@ -1,0 +1,26 @@
+.update-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch; /* Cambia align-items para que los elementos ocupen todo el ancho */
+  margin-top: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+mat-dialog-content {
+  width: 100%;
+  padding: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.row {
+  width: 100%;
+  margin-bottom: 16px;
+}

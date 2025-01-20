@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatIcon],
+  imports: [RouterOutlet, MatIcon, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -13,6 +14,14 @@ import { MatIcon } from '@angular/material/icon';
 export class AppComponent {
   title = 'notes-app';
   constructor(private router: Router) {}
+
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('userId') === "") {
+      return true
+    } else {
+        return false;
+      }
+    }
 
   logOut() {
     localStorage.setItem('userId', '')

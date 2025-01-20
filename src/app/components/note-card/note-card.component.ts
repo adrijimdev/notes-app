@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogActions } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
 import { NotesService } from '../../services/notes.service';
@@ -8,10 +9,11 @@ import { NoteModel } from '../../models/note';
 
 import { ConfirmDeletionComponent } from '../confirm-deletion/confirm-deletion.component';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
+import { NoteInfoComponent } from '../note-info/note-info.component';
 
 @Component({
   selector: 'note-card',
-  imports: [CommonModule, MatIcon],
+  imports: [CommonModule, MatIcon, MatDialogActions, MatButtonModule],
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.css'
 })
@@ -57,6 +59,12 @@ export class NoteCardComponent {
           });
         }
       }
+    });
+  }
+
+  openNoteInfo() {
+    const dialogRef = this.dialog.open(NoteInfoComponent, {
+      data: this.noteModel,
     });
   }
 
