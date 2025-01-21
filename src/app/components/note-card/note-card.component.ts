@@ -66,6 +66,13 @@ export class NoteCardComponent {
     const dialogRef = this.dialog.open(NoteInfoComponent, {
       data: this.noteModel,
     });
+
+    dialogRef.afterClosed().subscribe((updatedNote) => {
+      if (updatedNote) {
+        this.noteModel = updatedNote;
+        this.noteUpdated.emit(updatedNote);
+      }
+    });
   }
 
 }

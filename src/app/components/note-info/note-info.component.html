@@ -44,13 +44,17 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button (click)="cancelUpdate()" class="btn-cancel">
+    <button mat-button (click)="closeInfo()" class="btn-cancel">
       <mat-icon aria-hidden="false" aria-label="Example cancel icon" fontIcon="cancel"></mat-icon>
-      Cancelar
+      Cerrar
     </button>
-    <!-- <button mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">
+    <button *ngIf="!updatingNote" mat-button color="primary" (click)="beginUpdatingNote()">
+      <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
+      Editar
+    </button>
+    <button *ngIf="updatingNote" mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">
       <mat-icon aria-hidden="false" aria-label="Example save icon" fontIcon="save"></mat-icon>
       Guardar
-    </button> -->
+    </button>
   </mat-dialog-actions>
 </div>
