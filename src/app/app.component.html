@@ -1,4 +1,8 @@
 <header>
+  <div class="github-links">
+    <div (click)="goToFrontRep()">Código frontend</div>
+    <div (click)="goToBackRep()">Código backend</div>
+  </div>
   <button *ngIf="!isLoggedIn()" (click)="logOut()" class="btn-logout">
     <mat-icon aria-hidden="false" aria-label="Example logout icon" fontIcon="logout"></mat-icon>
     Cerrar sesión

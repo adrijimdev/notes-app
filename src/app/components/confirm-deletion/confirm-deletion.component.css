@@ -1,0 +1,7 @@
+.delete-btn, .delete-btn mat-icon, .delete-btn span {
+  color: #dc3545;
+}
+
+.delete-btn {
+  border: 2px solid #dc3545;
+}

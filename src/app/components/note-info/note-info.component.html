@@ -44,17 +44,22 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button (click)="closeInfo()" class="btn-cancel">
+    <button class="close-btn" mat-button (click)="closeInfo()">
       <mat-icon aria-hidden="false" aria-label="Example cancel icon" fontIcon="cancel"></mat-icon>
-      Cerrar
+      <span>Cerrar</span>
     </button>
-    <button *ngIf="!updatingNote" mat-button color="primary" (click)="beginUpdatingNote()">
+    <button class="delete-btn" mat-button (click)="deleteNote()">
+      <!-- <span class="material-symbols-outlined">delete</span> -->
+      <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+      <span>Eliminar</span>
+    </button>
+    <button class="edit-btn" *ngIf="!updatingNote" mat-button color="primary" (click)="beginUpdatingNote()">
       <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
-      Editar
+      <span>Editar</span>
     </button>
-    <button *ngIf="updatingNote" mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">
+    <button class="save-btn" *ngIf="updatingNote" mat-button color="primary" [disabled]="!editNoteForm.valid" (click)="updateNote()">
       <mat-icon aria-hidden="false" aria-label="Example save icon" fontIcon="save"></mat-icon>
-      Guardar
+      <span>Guardar</span>
     </button>
   </mat-dialog-actions>
 </div>

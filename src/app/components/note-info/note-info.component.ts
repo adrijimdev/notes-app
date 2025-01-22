@@ -2,7 +2,7 @@ import { Component, Inject, NgModule, ViewChild, EventEmitter, Output } from '@a
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { MatDialogContent, MAT_DIALOG_DATA, MatDialogActions, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogContent, MAT_DIALOG_DATA, MatDialogActions, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,6 +10,7 @@ import { MatIcon } from '@angular/material/icon';
 
 import { NotesService } from '../../services/notes.service';
 import { NoteModel } from '../../models/note';
+import { ConfirmDeletionComponent } from '../confirm-deletion/confirm-deletion.component';
 
 @Component({
   selector: 'note-info',
@@ -28,7 +29,8 @@ export class NoteInfoComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: NoteModel,
     private notesService: NotesService,
-    private dialogRef: MatDialogRef<NoteInfoComponent>
+    private dialogRef: MatDialogRef<NoteInfoComponent>,
+    private dialog: MatDialog
     ) {
     this.noteModel = { ...data };
   }
@@ -42,7 +44,7 @@ export class NoteInfoComponent {
       const updatedNote = {
         title: this.noteModel.title,
         content: this.noteModel.content,
-        userId: this.noteModel.userId // Include the userId property
+        userId: this.noteModel.userId
       };
 
       if (this.noteModel._id) {
@@ -57,6 +59,31 @@ export class NoteInfoComponent {
       }
     }
   }
+
+  deleteNote() {
+    const deletedNote = {
+      title: this.noteModel.title,
+      content: this.noteModel.content,
+      userId: this.noteModel.userId
+    };
+      // Se ejecuta el componente confirm-deletion como modal
+      const dialogRef = this.dialog.open(ConfirmDeletionComponent);
+
+      // Se comprueba si en el modal se ha confirmado el eliminado y entonces se procede con él
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          if (this.noteModel._id) {
+            this.notesService.deleteNote(this.noteModel._id).subscribe({
+              next: () => {
+                this.noteDeleted.emit();
+                this.dialogRef.close(deletedNote);
+              },
+              error: (err) => console.error('Error al eliminar la nota:', err),
+            });
+          }
+        }
+      });
+    }
 
   closeInfo(): void {
     this.dialogRef.close();

@@ -41,9 +41,9 @@
       <mat-icon aria-hidden="false" aria-label="Example cancel icon" fontIcon="cancel"></mat-icon>
       Cancelar
     </button>
-    <button mat-button color="primary" [disabled]="!createNoteForm.valid" (click)="createNote()">
+    <button class="save-btn" mat-button color="primary" [disabled]="!createNoteForm.valid" (click)="createNote()">
       <mat-icon aria-hidden="false" aria-label="Example save icon" fontIcon="save"></mat-icon>
-      Guardar
+      <span>Guardar</span>
     </button>
   </mat-dialog-actions>
 </div>

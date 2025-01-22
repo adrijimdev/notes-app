@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'confirm-deletion',
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, MatButtonModule, MatIcon],
   templateUrl: './confirm-deletion.component.html',
   styleUrl: './confirm-deletion.component.css'
 })

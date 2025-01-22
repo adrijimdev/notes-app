@@ -1,6 +1,12 @@
 <h2 mat-dialog-title>Confirmar eliminación</h2>
 <mat-dialog-content>¿Deseas eliminar esta nota?</mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancelar</button>
-  <button mat-button color="warn" (click)="onConfirm()">Eliminar</button>
+  <button mat-button (click)="onCancel()">
+    <mat-icon aria-hidden="false" aria-label="Example cancel icon" fontIcon="cancel"></mat-icon>
+    Cancelar
+  </button>
+  <button class="delete-btn" mat-button color="warn" (click)="onConfirm()">
+    <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+    <span>Eliminar</span>
+  </button>
 </mat-dialog-actions>

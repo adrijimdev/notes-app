@@ -6,18 +6,18 @@
   <h2>{{ noteModel.title }}</h2>
   <!-- <p>{{ noteModel.content }}</p> -->
   <mat-dialog-actions>
-    <button mat-button (click)="deleteNote()">
+    <button class="delete-btn" mat-button (click)="deleteNote()">
       <!-- <span class="material-symbols-outlined">delete</span> -->
-      <mat-icon color="warn" aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
-      Eliminar
+      <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"></mat-icon>
+      <span>Eliminar</span>
     </button>
     <!-- <button mat-button (click)="updateNote()">
       <mat-icon aria-hidden="false" aria-label="Example edit_note icon" fontIcon="edit_note"></mat-icon>
       Editar
     </button> -->
-    <button mat-button (click)="openNoteInfo()">
+    <button class="info-btn" mat-button (click)="openNoteInfo()">
       <mat-icon aria-hidden="false" aria-label="Example zoom_in icon" fontIcon="zoom_in"></mat-icon>
-      Ver más
+      <span>Ver más</span>
     </button>
   </mat-dialog-actions>
   <small>Fecha: {{ noteModel.createdAt | date }}</small>

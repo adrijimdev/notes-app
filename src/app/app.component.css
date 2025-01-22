@@ -1,25 +1,49 @@
 header {
   width: 100%;
+  display: flex;
+  justify-content: space-between; /* Elementos separados a ambos extremos */
+  align-items: center;
+  padding: 10px 20px; /* Espaciado interno suficiente */
+  box-sizing: border-box; /* Asegura que el padding no desborde el contenedor */
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  background-color: rgb(116, 114, 114);
+}
+
+.github-links {
+  display: flex;
+  gap: 20px;
+}
+
+.github-links div {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.github-links div:hover {
+  color: #0056b3;
 }
 
 .btn-logout {
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  top: 15px;
-  right: 15px;
-  /* padding: 8px 16px; */
-  margin-bottom: 20px;
   padding: 10px 20px;
   font-size: 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #f44336;
+  color: white;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Evita que el texto del botón se corte en líneas */
 }
 
 .btn-logout:hover {
-  background-color: hsl(0, 0%, 69%);
-  color: white;
+  background-color: #d32f2f;
 }

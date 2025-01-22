@@ -31,4 +31,18 @@ export class AppComponent {
     this.router.navigate(['/login-or-register'])
   }
 
+  goToFrontRep() {
+    const newWindow = window.open("https://github.com/adrijimdev/notes-app", "_blank");
+    if (newWindow) {
+      newWindow.focus();
+    }
+  }
+
+  goToBackRep() {
+    const newWindow = window.open("https://github.com/adrijimdev/notes-api-nodejs", "_blank");
+    if (newWindow) {
+      newWindow.focus();
+    }
+  }
+
 }
