@@ -41,18 +41,18 @@ mat-dialog-actions button {
   margin-right: 10px;
 }
 
-.delete-btn, .delete-btn mat-icon, .delete-btn span {
-  color: #dc3545;
-}
-
 .delete-btn {
-  border: 2px solid #dc3545;
+  background-color: #f44336;
+  color: white;
 }
 
-.info-btn, .info-btn mat-icon, .info-btn span {
-  color: black;
+.delete-btn, .delete-btn mat-icon, .delete-btn span {
+  color: white;
 }
 
 .info-btn {
-  border: 2px solid black;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.25);
+
 }
+
