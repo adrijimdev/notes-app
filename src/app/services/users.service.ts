@@ -8,7 +8,7 @@ import { UserModel } from '../models/user';
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = `/.netlify/functions/users`;
+  private apiUrl = `/.netlify/functions/users/`;
 
   constructor(private http: HttpClient) { }
 
