@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 import { UserModel } from '../models/user';
 
@@ -9,7 +8,7 @@ import { UserModel } from '../models/user';
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = `${environment.apiUrl}/users`;
+  private apiUrl = `/.netlify/functions/users`;
 
   constructor(private http: HttpClient) { }
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 import { NoteModel } from '../models/note';
 
@@ -9,7 +8,7 @@ import { NoteModel } from '../models/note';
   providedIn: 'root',
 })
 export class NotesService {
-  private apiUrl = `${environment.apiUrl}/notes`;
+  private apiUrl = '/.netlify/functions/notes';
 
   constructor(private http: HttpClient) {}
 
