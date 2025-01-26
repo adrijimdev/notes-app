@@ -26,6 +26,8 @@ export class RegisterComponent {
   constructor(private usersService: UsersService, private router: Router) {}
 
   registerUser() {
+    console.log('Datos enviados para registro:', this.userModel);
+
     if (!this.userModel.username || !this.userModel.password) {
       console.error('El nombre de usuario y la contraseña son obligatorios.');
       return;
@@ -33,14 +35,15 @@ export class RegisterComponent {
 
     this.usersService.createUser(this.userModel).subscribe({
       next: (response) => {
-        this.userModel = new UserModel("", ""); // Limpiar los campos del formulario
         console.log('Usuario registrado:', response);
-        localStorage.setItem('userId', String(response._id)); // Guardar el id del usuario en el localStorage
-        this.router.navigate(['/notes-list']); // Redirigir al usuario a la lista de notas
+        this.userModel = new UserModel('', '');  // Limpiar los campos del formulario
+        localStorage.setItem('userId', String(response._id));  // Guardar el id del usuario
+        this.router.navigate(['/notes-list']);  // Redirigir al usuario
       },
       error: (err) => {
         console.error('Error al registrar el usuario:', err);
       },
     });
   }
+
 }
