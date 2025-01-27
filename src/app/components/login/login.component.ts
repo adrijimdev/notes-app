@@ -35,7 +35,7 @@ export class LoginComponent {
         if (error.name === 'TimeoutError') {
           alert('La solicitud tardó demasiado en responder debido a que el backend está alojado con el tier gratuito de Render. Por favor, inténtalo de nuevo.');
         } else {
-          alert('Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');
+          alert('Usuario o contraseña incorrectos o la solicitud tardó demasiado en responder. Por favor, inténtalo de nuevo.');
         }
         console.error('Error al iniciar sesión:', error);
       }

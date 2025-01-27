@@ -1,9 +1,24 @@
-.container {
+.warning {
+  margin-top: 20px;
+  background-color: #d32f2f;
+  color: white;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: -20px;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: 100vh;
   background-color: rgb(56, 55, 55);
+  position: relative;
 }
 
 .form-container {

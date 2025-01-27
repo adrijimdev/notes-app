@@ -44,7 +44,7 @@ export class RegisterComponent {
         if (error.name === 'TimeoutError') {
           alert('La solicitud tardó demasiado en responder debido a que el backend está alojado con el tier gratuito de Render. Por favor, inténtalo de nuevo.');
         } else {
-          alert('Es posible que el usuario ya exista. Por favor, inténtalo de nuevo.');
+          alert('Es posible que el usuario ya exista o la solicitud tardó demasiado en responder. Por favor, inténtalo de nuevo.');
         }
         console.error('Error al registrar el usuario:', error);
       },
