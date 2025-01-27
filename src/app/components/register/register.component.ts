@@ -40,8 +40,13 @@ export class RegisterComponent {
         localStorage.setItem('userId', String(response._id));  // Guardar el id del usuario
         this.router.navigate(['/notes-list']);  // Redirigir al usuario
       },
-      error: (err) => {
-        console.error('Error al registrar el usuario:', err);
+      error: (error) => {
+        if (error.name === 'TimeoutError') {
+          alert('La solicitud tardó demasiado en responder debido a que el backend está alojado con el tier gratuito de Render. Por favor, inténtalo de nuevo.');
+        } else {
+          alert('Es posible que el usuario ya exista. Por favor, inténtalo de nuevo.');
+        }
+        console.error('Error al registrar el usuario:', error);
       },
     });
   }

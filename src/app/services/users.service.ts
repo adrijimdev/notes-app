@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { timeout, catchError } from 'rxjs/operators';
 
 import { UserModel } from '../models/user';
 
@@ -24,12 +25,24 @@ export class UsersService {
 
     // POST
     createUser(user: UserModel): Observable<UserModel> {
-      return this.http.post<UserModel>(this.apiUrl, user);
+      return this.http.post<UserModel>(this.apiUrl, user).pipe(
+        timeout(30000), // Timeout de 30 segundos por la lentitud ocasiona del tier gratuito de Render en el back
+        catchError((error) => {
+          console.error('Error en la petición de login:', error);
+          throw error; // Lanza el error para que sea manejado en el componente
+        })
+      );
     }
 
     // POST método para iniciar sesión
     login(credentials: { username: string; password: string }): Observable<any> {
-      return this.http.post(`${this.apiUrl}/login`, credentials);
+      return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
+        timeout(30000), // Timeout de 30 segundos por la lentitud ocasiona del tier gratuito de Render en el back
+        catchError((error) => {
+          console.error('Error en la petición de login:', error);
+          throw error; // Lanza el error para que sea manejado en el componente
+        })
+      );
     }
 
     // PUT

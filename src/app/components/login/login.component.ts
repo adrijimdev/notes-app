@@ -32,8 +32,12 @@ export class LoginComponent {
         this.router.navigate(['/notes-list']);
       },
       (error) => {
+        if (error.name === 'TimeoutError') {
+          alert('La solicitud tardó demasiado en responder debido a que el backend está alojado con el tier gratuito de Render. Por favor, inténtalo de nuevo.');
+        } else {
+          alert('Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');
+        }
         console.error('Error al iniciar sesión:', error);
-        alert('Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.');
       }
     );
   }
